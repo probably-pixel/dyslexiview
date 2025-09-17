@@ -1,75 +1,38 @@
-#  Word Wonder: Interactive Learning Games
+#Project Evolution: Dyslexiview 2.0 ✨
+This project has been fundamentally transformed from a simple learning aid into a feature-rich, interactive web application. It's built from the ground up to help users improve reading and writing skills through a series of engaging, AI-powered games.
 
-Word Wonder is a web-based educational application designed to help children, especially those with dyslexia, improve their reading, recognition, and writing skills through fun and interactive games.
+#Key Features & Additions 🎮
+User Login & Progress Tracking: A new login page has been added to save user sessions and track progress directly in the browser using Local Storage.
 
+#Three Interactive Game Levels:
 
+Level 1 (Word Listen): Uses the Web Speech API for text-to-speech, challenging users to identify spoken words.
 
-## ✨ Key Features
+Level 2 (Color Challenge): Implements Speech Recognition to test cognitive skills and attention.
 
--   **User Authentication**: A simple login system to personalize the experience and track progress.
--   **Gamified Learning**: Three engaging levels that target different learning skills:
-    -   **Level 1 (Word Listen)**: An auditory recognition game where users listen to a word and select the correct one from a list.
-    -   **Level 2 (Color Challenge)**: A cognitive game that challenges users to say the *color* of a word, not the word itself, using the Web Speech API for voice recognition.
-    -   **Level 3 (Write Letters)**: A writing practice game where users draw letters on a canvas, which are then evaluated by a Machine Learning model.
--   **ML-Powered Handwriting Recognition**: Utilizes a pre-trained **TensorFlow.js (EMNIST)** model that runs directly in the browser to provide real-time feedback on handwriting.
--   **Reading Helper Tool**: An assistive tool that uses **Tesseract.js** (for images) and **pdf.js** (for PDFs) to extract text from uploaded files.
--   **Advanced Text-to-Speech (TTS)**: Extracted text is read aloud using high-quality voices from the **ElevenLabs API** (if a key is provided) or the browser's native Web Speech API.
--   **Dyslexia-Friendly UI**: Text is rendered in dyslexia-friendly fonts and formats to improve readability.
--   **Progress Tracking**: User scores and stars are saved locally, allowing them to track their improvement over time.
+Level 3 (Write Letters): Features a Canvas drawing board where a TensorFlow.js model provides real-time feedback on handwritten letters.
 
-## 🛠️ Tech Stack
+Reading Helper Tool: Allows users to upload images or PDFs and uses Tesseract.js (OCR) and pdfjs-dist to extract text, making it easier to read.
 
--   **Frontend**: React, TypeScript, Vite
--   **UI**: Tailwind CSS, shadcn/ui
--   **Machine Learning**: TensorFlow.js, Tesseract.js
--   **Browser APIs**: Web Speech API (Synthesis & Recognition), Canvas, Local Storage
--   **PDF Parsing**: pdfjs-dist
--   **Text-to-Speech (Optional)**: ElevenLabs API
+#Technical Architecture & Stack 🛠️
+The application is built as a modern Single-Page Application (SPA) using a client-side architecture.
 
-## 🚀 Getting Started
+#Core Frontend Stack:
 
-Follow these instructions to get a local copy of the project up and running.
+Framework: React with TypeScript for a robust, component-based structure.
 
-### Prerequisites
+Build Tool: Vite for a fast and modern development experience.
 
--   [Node.js](https://nodejs.org/) (v18 or later)
--   npm or bun package manager
+UI/Styling: Tailwind CSS and shadcn/ui for a responsive, modern, and accessible design.
 
-### Installation & Setup
+Browser-Based AI & Machine Learning:
 
-1.  **Clone the repository:**
-    ```sh
-    git clone <YOUR_GIT_URL>
-    cd <YOUR_PROJECT_NAME>
-    ```
+Handwriting Recognition: A pre-trained TensorFlow.js (CNN) model runs in the browser to analyze drawings on the Canvas.
 
-2.  **Install dependencies:**
-    ```sh
-    npm install
-    ```
+Optical Character Recognition (OCR): Tesseract.js is used to extract text from images on the client side.
 
-3.  **Set up Environment Variables (Optional):**
-    To enable high-quality text-to-speech in the Reading Helper, create a file named `.env` in the project root and add your ElevenLabs API key:
-    ```
-    VITE_ELEVENLABS_API_KEY="your_elevenlabs_api_key_here"
-    ```
-    *Note: The `.env` file is included in `.gitignore` to keep your API key private.*
+#State & Session Management:
 
-4.  **Run the development server:**
-    ```sh
-    npm run dev
-    ```
-    Open [http://localhost:8080](http://localhost:8080) to view the application in your browser.
+Custom React Hooks (useGameState) are used to manage the application's global state.
 
-## 📁 Project Structure
-
-The project is organized with a clear separation of concerns:
-
--   `public/`: Static assets.
--   `src/`: Main application source code.
-    -   `components/`: Reusable React components, including game levels and UI elements.
-    -   `hooks/`: Custom React hooks for state management (`useGameState`).
-    -   `lib/`: Utility functions.
-    -   `pages/`: Top-level page components for routing.
--   `App.tsx`: The root component that sets up routing and global providers.
--   `main.tsx`: The application's entry point.
+Local Storage is leveraged for data persistence, saving user sessions and game progress without needing a backend database.
